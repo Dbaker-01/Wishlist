@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -13,16 +14,15 @@ class WishlistAdapter(private val wishItem: List<Items>) : RecyclerView.Adapter<
 {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
-        val itemNameView: EditText
-        val price: EditText
-        val itemLocation: EditText
+        val itemNameView: TextView
+        val price: TextView
+        val itemLocation: TextView
 
         init
         {
-            itemNameView = itemView.findViewById(R.id.nameInput)
-            price = itemView.findViewById(R.id.priceInput)
-            itemLocation = itemView.findViewById(R.id.itemLocationInput)
-
+            itemNameView = itemView.findViewById(R.id.itemName)
+            price = itemView.findViewById(R.id.priceText)
+            itemLocation = itemView.findViewById(R.id.locationText)
         }
     }
 
@@ -42,6 +42,6 @@ class WishlistAdapter(private val wishItem: List<Items>) : RecyclerView.Adapter<
     }
 
     override fun getItemCount(): Int {
-        return wishItem.size
+        return wishItem.count()
     }
 }
